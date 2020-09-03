@@ -1,0 +1,33 @@
+header#masthead {
+	nav.secondary {
+		background: $primary;
+	}
+}
+
+aside#chat {
+	position: absolute;
+	background: $primary;
+	top: 40%;
+	right: -7px;
+	transform: rotateZ(270deg);
+	transform-origin: 100% 100%;
+	font-family: $heading;
+	color: #fff;
+	font-size: 22px;
+	width: auto;
+	line-height: 1;
+	padding: 15px 20px 20px;
+	cursor: pointer;
+	transition: 0.25s;
+	text-transform: uppercase;
+	
+	img {
+		display: inline;
+		vertical-align: middle;
+		margin-right: 0.5rem;
+	}
+	
+	&:hover {
+		right: 0;
+	}
+}
