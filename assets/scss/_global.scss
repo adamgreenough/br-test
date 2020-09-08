@@ -1,6 +1,204 @@
+.container {
+	width: 100%;
+	max-width: $container-width;
+	margin: auto;
+	padding: 0 20px;
+}
+
 header#masthead {
 	nav.secondary {
 		background: $primary;
+		height: 56px;
+		display: flex;
+		align-items: center;
+		
+		.container {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+		
+		ul {
+			display: flex;
+			justify-content: flex-end;
+			list-style: none;
+			font-size: 0.9rem;
+			line-height: 1;
+			padding: 0;
+			margin: 0;
+			
+			li {
+				padding: 0 20px;
+				
+				&:not(:first-child) {
+					border-left: solid lighten($primary, 40%) 1px;
+				}
+				
+				a {
+					color: #fff;
+					font-weight: bold;
+					text-decoration: none;
+					transition: 0.25s;
+					
+					&:hover {
+						color: $secondary;
+					}
+				}
+			}
+		}
+		
+		input {
+			background: transparent; 
+			border: solid lighten($primary, 40%) 1px;
+			border-radius: 10px; 
+			appearance: none;
+			color: #fff;
+			padding: 2px 7px;
+			
+			&::placeholder {
+				color: #fff;
+			}
+		}
+	}
+	
+	nav.primary {
+		.container {
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.brand {
+			margin: -56px 0 20px;
+			border-left: solid lighten($darkgrey, 75%) 1px;
+			border-right: solid lighten($darkgrey, 75%) 1px;
+		}
+		
+		ul {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			
+			li {
+				padding: 0 1rem;
+				
+				a {
+					color: $darkgrey;
+					font-weight: bold;
+					text-decoration: none;
+					transition: 0.25s;
+					
+					&:hover {
+						color: $primary;
+					}
+				}
+				
+				&:not(:first-child) {
+					border-left: solid lighten($darkgrey, 40%) 1px;
+				}
+			
+				> ul {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+section#slider {
+	position: relative;
+	
+	.slide {
+		background-size: cover;
+		background-position: center center;
+		display: flex;
+		padding: 10rem 0 14rem;
+		position: relative;
+		
+		h1, ul {
+			max-width: 700px;
+			position: relative;
+			z-index: 1;
+		}
+		
+		h1 {
+			font-size: 4rem;
+			color: #fff;
+			text-transform: uppercase;
+			line-height: 1.2;
+			
+			@media(max-width: 450px) {
+				font-size: 3rem;
+			}
+		}
+		
+		.buttons {
+			display: flex;
+			align-items: center;
+			margin-top: 2rem;
+			
+			a {
+				background: $secondary;
+				padding: 1rem 2rem;
+				color: #fff;
+				text-decoration: none;
+				border-radius: 2rem;
+				height: 50px;
+				line-height: 1;
+				vertical-align: middle;
+				font-size: 16px;
+			}
+			
+			button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				outline: none;
+				border: none;
+				background: rgba(255, 255, 255, 0.4);
+				border-radius: 50%;
+				border: $secondary solid 2px;
+				height: 50px;
+				width: 50px;
+				margin-left: 1rem;
+				font-size: 1.4rem;
+				line-height: 1;
+				color: $secondary;
+				transition: 0.25s;
+				cursor: pointer;
+				
+				&:hover {
+					color: #fff;
+					background: $secondary;
+				}
+			}
+		}
+		
+		&:before {
+			content: '';
+			background: rgb(0,0,0);
+			background: linear-gradient(90deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0) 100%);
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+		}
+	}
+	
+	&:after {
+		content: '';
+		background-image: url('../assets/images/curve-rough-edge-yellow.png');
+		background-size: cover;
+		background-position: center top;
+		width: 100%;
+		padding-bottom: 6.25%; // 16:1 aspect ratio
+		margin-top: -6.25%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
 	}
 }
 
@@ -13,13 +211,15 @@ aside#chat {
 	transform-origin: 100% 100%;
 	font-family: $heading;
 	color: #fff;
-	font-size: 22px;
+	font-size: 21px;
 	width: auto;
 	line-height: 1;
 	padding: 15px 20px 20px;
 	cursor: pointer;
 	transition: 0.25s;
 	text-transform: uppercase;
+	letter-spacing: 1px;
+	z-index: 10;
 	
 	img {
 		display: inline;
